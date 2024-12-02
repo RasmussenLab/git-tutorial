@@ -1,7 +1,9 @@
+name: vscode-binder
 channels:
   - conda-forge
 dependencies:
   - numpy
+  - python-build
   - jupyter-server-proxy
   - code-server >=3.2
   - pandas

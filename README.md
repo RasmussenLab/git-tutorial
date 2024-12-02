@@ -4,7 +4,7 @@
 > VS Code on Binder, because sometimes you need a real editor.  
 
 [![PyPI](https://img.shields.io/pypi/v/jupyter-vscode-proxy)](https://pypi.org/project/jupyter-vscode-proxy/)
-[![Install with conda](https://anaconda.org/conda-forge/jupyter-vscode-proxy/badges/installer/conda.svg)](https://github.com/conda-forge/jupyter-vscode-proxy-feedstock)
+[![Install with conda](https://anaconda.org/conda-forge/jupyter-vscode-proxy/badges/version.svg)](https://github.com/conda-forge/jupyter-vscode-proxy-feedstock)
 
 Start:
  - lab: [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/RasmussenLab/git-tutorial/master?urlpath=lab)
