@@ -1,66 +1,71 @@
-# Git Tutorial using
+# Git Tutorial
 
-> VS Code on Binder  
-> VS Code on Binder, because sometimes you need a real editor.  
+Sign-Up to the workshop here (being logged in with your DTU Microsoft account): [Sign-Up Form](https://forms.office.com/e/62H1nV61R0)
 
-[![PyPI](https://img.shields.io/pypi/v/jupyter-vscode-proxy)](https://pypi.org/project/jupyter-vscode-proxy/)
-[![Install with conda](https://anaconda.org/conda-forge/jupyter-vscode-proxy/badges/installer/conda.svg)](https://github.com/conda-forge/jupyter-vscode-proxy-feedstock)
+## Announcement
 
-Start:
- - lab: [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/RasmussenLab/git-tutorial/master?urlpath=lab)
- - vscode: [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/RasmussenLab/git-tutorial/master?urlpath=vscode?folder=/home/jovyan/examples)
+This workshop will give you the opportunity to practice git as a version control system
+and Github as a website to host your repositories. Using git you can track changes in
+folders. It allows you track your progress and to spot random typos when working on
+many projects and tasks in parallel. In the workshop you will get the time to practice
+the fundamental concepts and actions directly in your browser - either using VSCode in
+GitHub Codespaces or in using the GitHub web interface. If you want, you can also try
+everything on your local computer.
 
+I will give a brief introduction to git. Then you will specific workflows by
+collaboratively work on extending a [recipe book](https://biosustain.github.io/recipe-book/)
+(please bring a recipe you like).
+You will learn how to work on
+[branches](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-branches),
+review [Pull Requests](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-pull-requests)
+and merge them into the main branch. If you have specific requests, feel free to reach out to me.
 
-## Explore
+If you have specific requests, feel free to reach out to [me](mailto:heweb@dtu.dk) and/or write it down in the sign-up form.
 
-You will need to setup your git email and user-name
-(replace with yours in case you want to commit something, otherwise use copy-paste)
+What you'll learn:
 
-```bash
-git config --global user.email "you@example.com"
-git config --global user.name "Your Name"
-``` 
-> could be added to local config using `git config user...`
+- Basic tasks and actions to perform with git (in VSCode or in the browser)
+- How to branch and tag
+- Follow trunk-based development
+- See how to merge and comment a Pull Request based on a branch
+- Solve merge conflicts
+- Familiarize yourself with VSCode’s and GitHub’s interface and user experience
+- Get to know new recipes
 
-### Steps
+Minimal prerequisite: A [GitHub account](https://github.com/signup).
+If you want to follow along locally, please install
+[GitHub Desktop](https://desktop.github.com/download/) and
+[VSCode](https://code.visualstudio.com/) on your machine.
 
-- create a folder with an empty repository (default `examples`)
-- `git init` in console to initialize repo
-- setup user.name and user.email
-- create files, stage them and see what files are created in `.git/objects`
-- commit files and check `.git/objects`
-- create branches and checkout `.git/refs` and `git/branches` folder
-- look at `git/HEAD` (maybe `git/ORIG_HEAD` if it exists)
+### Brief timeline of the workshop:
 
-> try to create your own fork, and try to lauch it on [mybinder](https://mybinder.org/)
+| Time          | Activity                                   |
+| ------------- | ------------------------------------------ |
+| 10:00 - 10:15 | Coffee and snacks 🥐                       |
+| 10:15 - 10:45 | Introduction and example workflow          |
+| 10:45 - 12:00 | Working collaboratively on the recipe book |
+| 12:00 - 12:30 | lunch break (not included)                 |
+| 12:30 - 13:30 | Your question and advanced content         |
 
-## Links
+## Slides
 
+<iframe 
+src="https://docs.google.com/presentation/d/1RsKMiKquE4wqncrAv9LEtjivGE_dGiHoJ8nKCxgVKeY/embed" 
+frameborder="0"
+width="100%" height="480" 
+allowfullscreen="true"
+mozallowfullscreen="true" 
+webkitallowfullscreen="true">
+</iframe>
+
+## Local Setup
+
+See [local_setup](local_setup.md) for instructions to setup git on your local computer.
+
+## Links to learn more
+
+- [git-intro by coderefinery](https://coderefinery.github.io/git-intro/#)
 - [git-moji](https://gitmoji.dev/)
-- [curious git](https://matthew-brett.github.io/curious-git/) - detailed intro to the inner workings
-- [git parable](http://practical-neuroimaging.github.io/git_parable.html) - why git came to exist
-- Videos: 
-    - [Python-Git-Client](https://www.youtube.com/watch?v=xvzo_nV9PjU)
-    - [Git-Interals](https://www.youtube.com/watch?v=MYP56QJpDr4)
-    - [Git PyData Global 2021 talk](https://www.youtube.com/watch?v=rBYC3dEOOyI)
-
-## Inspect git objects
-
-```bash
-git log --format=raw
-git cat-file -p <hash> # pretty print
-git cat-file -t <hash> # type
-
-# the binary object can also be inspected using different tools,
-# which might make it easier to navigate to certain blobs:
-cat .git/objects/<2c>/<38c> | zlib-flate -uncompress
-```
-
-## Note
-
-> Should be Run the Python Tsunami notebooks on binder.
-?urlpath=vscode/?folder
-Go directly to Python Tsunami repository in
- - VSCode [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/RasmussenLab/git-tutorial/master?urlpath=vscode/?folder=/home/jovyan/PythonTsunami)
- - JupyterLab [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/RasmussenLab/git-tutorial/master?urlpath=lab/tree/PythonTsunami)
- - Jupyter Notebook [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/RasmussenLab/git-tutorial/master?urlpath=tree/PythonTsunami)
+- [Git Internals - Plumbing and Porcelain](https://git-scm.com/book/en/v2/Git-Internals-Plumbing-and-Porcelain)
+- [Glossary of terms for git](https://www.git-scm.com/docs/gitglossary)
+- [Glossary terms for GitHub](https://docs.github.com/en/get-started/learning-about-github/github-glossary)
