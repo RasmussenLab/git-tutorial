@@ -1,4 +1,4 @@
-# Workshop on the 5th of November 2025
+# Workshop on the 4th of November 2026
 
 ## How to work with the repository
 
@@ -33,7 +33,7 @@ You need to be logged in to GitHub and have a GitHub account.
 - Open in GitHub Codespace if you want to build and preview the website without
   creating a commit:
 
-  [![Open in GitHub Codespaces](https://github.com/codespaces/new?hide_repo_select=true&amp%3Bamp%3Bref=main&amp%3Bamp%3Brepo=1053356553&amp%3Bamp%3Bskip_quickstart=true&amp%3Bskip_quickstart=true&amp%3Bmachine=basicLinux32gb&amp%3Brepo=1053356553&amp%3Bref=main&amp%3Bdevcontainer_path=.devcontainer%2Fdevcontainer.json&amp%3Bgeo=EuropeWest&skip_quickstart=true&machine=basicLinux32gb&repo=1053356553&ref=main&devcontainer_path=.devcontainer%2Fdevcontainer.json&geo=EuropeWest)
+  [![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://github.com/codespaces/new?hide_repo_select=true&amp%3Bamp%3Bref=main&amp%3Bamp%3Brepo=1053356553&amp%3Bamp%3Bskip_quickstart=true&amp%3Bskip_quickstart=true&amp%3Bmachine=basicLinux32gb&amp%3Brepo=1053356553&amp%3Bref=main&amp%3Bdevcontainer_path=.devcontainer%2Fdevcontainer.json&amp%3Bgeo=EuropeWest&skip_quickstart=true&machine=basicLinux32gb&repo=1053356553&ref=main&devcontainer_path=.devcontainer%2Fdevcontainer.json&geo=EuropeWest)
 
 > If you start from the `biosustain/recipe-book` repository you can create a codespace,
 > and it will automatically create a fork for you if you don't have write access.
@@ -174,20 +174,41 @@ Common actions during interactive rebase:
 It will look something similar to this (taken from the tutorial linked above):
 
 ```bash
-pick 2231360 some old commit
-pick ee2adc2 Adds new feature
+pick 1ad9716 Added brandade croquettes (#58)
+pick d5c6d74 :memo: description
+pick c55c98c :art: enumerate instructions as steps for recipe
+pick a0b894b 🚧 fix local git issues using git mv
 
-
-# Rebase 2cf755d..ee2adc2 onto 2cf755d (9 commands)
+# Rebase c0dd3ef..a0b894b onto c0dd3ef (4 commands)
 #
 # Commands:
-# p, pick = use commit
-# r, reword = use commit, but edit the commit message
-# e, edit = use commit, but stop for amending
-# s, squash = use commit, but meld into previous commit
-# f, fixup = like "squash", but discard this commit's log message
-# x, exec = run command (the rest of the line) using shell
-# d, drop = remove commit
+# p, pick <commit> = use commit
+# r, reword <commit> = use commit, but edit the commit message
+# e, edit <commit> = use commit, but stop for amending
+# s, squash <commit> = use commit, but meld into previous commit
+# f, fixup [-C | -c] <commit> = like "squash" but keep only the previous
+#                    commit's log message, unless -C is used, in which case
+#                    keep only this commit's message; -c is same as -C but
+#                    opens the editor
+# x, exec <command> = run command (the rest of the line) using shell
+# b, break = stop here (continue rebase later with 'git rebase --continue')
+# d, drop <commit> = remove commit
+# l, label <label> = label current HEAD with a name
+# t, reset <label> = reset HEAD to a label
+# m, merge [-C <commit> | -c <commit>] <label> [# <oneline>]
+#         create a merge commit using the original merge commit's
+#         message (or the oneline, if no original merge commit was
+#         specified); use -c <commit> to reword the commit message
+# u, update-ref <ref> = track a placeholder for the <ref> to be updated
+#                       to this position in the new commits. The <ref> is
+#                       updated at the end of the rebase
+#
+# These lines can be re-ordered; they are executed from top to bottom.
+#
+# If you remove a line here THAT COMMIT WILL BE LOST.
+#
+# However, if you remove everything, the rebase will be aborted.
+#
 ```
 
 workflow:
@@ -213,13 +234,19 @@ repository.
   I created running the Python code below):
 
   ```python
-  import numpy as np
-  alphabet = np.array(['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm',
-       'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'],
-      dtype='<U1')
-  mb = 1024*1024
-  n = 105*mb  # number of random characters to get >100MB so GitHub rejects it
-  np.random.choice(np.fromstring(alphabet, dtype='<U1'), n)
+    import numpy as np
+
+    alphabet = np.array([
+        'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm',
+        'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z',
+    ],
+        dtype='<U1')
+    mb = 1024*1024
+    n = 105*mb  # number of random characters to get >100MB so GitHub rejects it
+    content = np.random.choice(np.frombuffer(alphabet, dtype='<U1'), n)
+
+    with open('large_text_file.txt', 'w') as f:
+        f.write(''.join(content))
   ```
 
 - commit them in a data folder
